@@ -16,3 +16,23 @@ public:
         return l;
     }
 };
+
+
+/*
+------------------------------------------2nd Easy Solution---------------------------
+class Solution {
+public:
+    int searchInsert(std::vector<int>& nums, int target) {
+        int n = nums.size();
+        
+        for (int i = 0; i < n; i++) {
+            if (nums[i] >= target) {
+                return i;
+            }
+        }
+        return n;
+    }
+};
+
+
+*/
