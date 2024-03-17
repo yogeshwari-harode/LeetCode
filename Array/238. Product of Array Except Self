@@ -1,0 +1,35 @@
+import java.util.*;
+class Main {
+    static int[] productExceptSelf(int[] nums) {
+        
+        int n=nums.length;
+        int[] ans=new int[n];
+
+        for(int i=0 ; i<n ; i++){
+            int product=1;
+            for(int j=0 ; j<n ; j++){
+                if(i==j)
+                    continue;
+                else{
+                    product=product*nums[j];
+                }
+            }
+            ans[i]=product;
+        }
+        return ans;
+    }
+    public static void main(String[]args){
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int[] arr=new int[n];
+        for(int i=0 ; i<n ; i++){
+            arr[i]=scn.nextInt();
+        }
+        int[] result = productExceptSelf(arr);
+        
+        // Print the result
+        for (int num : result) {
+            System.out.print(num + " ");
+        }
+    }
+}
