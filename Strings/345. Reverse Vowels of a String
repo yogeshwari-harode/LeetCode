@@ -1,0 +1,35 @@
+class Solution {
+    public static boolean isVowel(char ch){
+        if(ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' || ch=='o' || ch=='O'|| ch=='u' || ch=='U'){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public String reverseVowels(String s) {
+        int n = s.length();
+        int start = 0;
+        int end = n - 1;
+        char[] charArray = s.toCharArray(); 
+
+        while (start < end) {
+            while (start < end && !isVowel(charArray[start])) {
+                start++;
+            }
+           
+            while (start < end && !isVowel(charArray[end])) {
+                end--;
+            }
+            if (start < end) {
+                char temp = charArray[start];
+                charArray[start] = charArray[end];
+                charArray[end] = temp;
+                start++;
+                end--;
+            }
+        }
+        return new String(charArray);
+    }
+}
