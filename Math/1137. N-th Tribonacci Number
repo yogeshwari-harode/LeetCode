@@ -1,0 +1,19 @@
+class Solution {
+    public int tribonacci(int n) {
+        if (n == 0) return 0;
+        if (n == 1 || n == 2) return 1;
+
+        int a = 0; 
+        int b = 1; 
+        int c = 1; 
+        int nth_term = 0;
+
+        for (int i = 3; i <= n; i++) {
+            nth_term = a + b + c; // T(n) = T(n-1) + T(n-2) + T(n-3)
+            a = b; 
+            b = c; 
+            c = nth_term; 
+        }
+        return nth_term;
+    }
+}
