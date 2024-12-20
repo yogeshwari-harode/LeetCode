@@ -1,0 +1,13 @@
+
+class Solution {
+    boolean isPalindrome(String s) {
+        int n=s.length();
+        int p1=0,p2=n-1; 
+        while(p1<=p2){
+            if(s.charAt(p1++)!=s.charAt(p2--)){
+                return false;
+            }
+        }
+        return true;
+    }
+};
