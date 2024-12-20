@@ -1,0 +1,28 @@
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashSet<Integer>set=new HashSet<>();
+        HashSet<Integer>intersection=new HashSet<>();
+
+        int n1=nums1.length;
+        int n2=nums2.length;
+        int n=0;
+        for (int num : nums1) {
+            set.add(num);
+        }
+        
+        // Check if elements of nums2 exist in set and add to intersection
+        for (int num : nums2) {
+            if (set.contains(num)) {
+                intersection.add(num); // Ensures uniqueness
+            }
+        }
+
+        int[] ans = new int[intersection.size()];
+        int idx = 0;
+        for (int num : intersection) {
+            ans[idx++] = num;
+        }
+        
+        return ans;
+    }
+}
