@@ -3,9 +3,6 @@ class Solution {
         HashSet<Integer>set=new HashSet<>();
         HashSet<Integer>intersection=new HashSet<>();
 
-        int n1=nums1.length;
-        int n2=nums2.length;
-        int n=0;
         for (int num : nums1) {
             set.add(num);
         }
