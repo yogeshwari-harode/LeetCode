@@ -1,0 +1,17 @@
+
+
+class Solution {
+    public boolean isSubset(int a[], int b[]) {
+        HashSet<Integer>set=new HashSet<>();
+        for(int num:a){
+            set.add(num);
+        }
+        
+        for(int num:b){
+            if(!set.contains(num)){
+                return false;
+            }
+        }
+        return true;
+    }
+}
