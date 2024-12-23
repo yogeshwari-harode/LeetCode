@@ -1,0 +1,35 @@
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        if (head == null || head.next == null || k == 0) {
+            return head; // No rotation needed
+        } 
+        int size = 1; // Start with 1 since we're counting the head
+        ListNode tail = head;
+        while (tail.next != null) {
+            size++;
+            tail = tail.next;
+        }
+
+        // Step 2: Optimize k (handle cases where k >= size)
+        k = k % size;
+        if (k == 0) {
+            return head; // No rotation needed
+        }
+
+        // Step 3: Form a circular list
+        tail.next = head;
+
+        // Step 4: Find the new tail and new head
+        int stepsToNewHead = size - k;
+        ListNode newTail = head;
+        for (int i = 1; i < stepsToNewHead; i++) {
+            newTail = newTail.next;
+        }
+        ListNode newHead = newTail.next;
+
+        // Step 5: Break the circular list
+        newTail.next = null;
+
+        return newHead;
+    }
+}
