@@ -1,0 +1,21 @@
+class Solution {
+    public String addSpaces(String s, int[] spaces) {
+        StringBuilder newstr = new StringBuilder();
+        int k = 0;
+        
+        for (int i = 0; i < spaces.length; i++) {
+            int idx = spaces[i];
+            while (k < idx) {
+                newstr.append(s.charAt(k));
+                k++;
+            }
+            newstr.append(' ');
+        }
+        while (k < s.length()) {
+            newstr.append(s.charAt(k));
+            k++;
+        }
+        
+        return newstr.toString();
+    }
+}
