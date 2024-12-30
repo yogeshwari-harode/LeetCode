@@ -1,0 +1,17 @@
+class Solution {
+    public String restoreString(String s, int[] indices) {
+        HashMap<Integer,Character>hm=new HashMap<>();
+        int n=s.length(); //as indices and s both have same length so we can use n for both
+        String ans="";
+
+        for(int i=0 ; i<n ; i++){
+            hm.put(indices[i], s.charAt(i));
+        }
+        for (int i = 0; i < n; i++) {
+            ans+=hm.get(i); // Directly get the character for index i
+        }
+        return ans;
+    }
+}
+
+
