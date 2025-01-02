@@ -1,0 +1,23 @@
+import java.util.*;
+
+class Solution {
+    public int thirdMax(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+        Arrays.sort(nums); // Sort the array in ascending order
+        int count = 0;
+
+        // Add unique elements to the set and count them
+        for (int i = nums.length - 1; i >= 0; i--) { // Traverse from largest to smallest
+            if (!set.contains(nums[i])) {
+                set.add(nums[i]);
+                count++;
+            }
+            if (count == 3) { // Stop when 3 unique elements are found
+                return nums[i];
+            }
+        }
+
+        // If fewer than 3 unique elements, return the largest
+        return nums[nums.length - 1];
+    }
+}
