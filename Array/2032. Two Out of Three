@@ -1,0 +1,29 @@
+class Solution {
+    public List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
+        List<Integer>ans=new ArrayList<>();
+        HashSet<Integer>set1=new HashSet<>();
+        HashSet<Integer>set2=new HashSet<>();
+        HashSet<Integer>set3=new HashSet<>();
+        HashSet<Integer>CombineSet=new HashSet<>();
+
+        for(int num:nums1){
+            set1.add(num);
+            CombineSet.add(num);
+        }
+        for(int num:nums2){
+            set2.add(num);
+            CombineSet.add(num);
+        }
+        for(int num:nums3){
+            set3.add(num);
+            CombineSet.add(num);
+        }
+        for(int val:CombineSet){
+            if(set1.contains(val) && set2.contains(val) || set2.contains(val) && set3.contains(val) || set1.contains(val) && set3.contains(val)){
+                ans.add(val);
+            }
+        }
+        return ans;
+        
+    }
+}
