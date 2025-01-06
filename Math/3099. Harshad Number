@@ -1,0 +1,15 @@
+class Solution {
+    public int sumOfTheDigitsOfHarshadNumber(int x) {
+        int sumOfDigit=0;
+        int n=x;
+        int ans=-1;
+
+        while(n>0){
+            int digit=n%10;
+            sumOfDigit+=digit;
+            n/=10;
+        }
+        if(x%sumOfDigit==0) ans=sumOfDigit;
+        return ans;
+    }
+}
