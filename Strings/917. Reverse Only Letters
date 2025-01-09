@@ -1,0 +1,23 @@
+class Solution {
+    public String reverseOnlyLetters(String s) {
+        StringBuilder rev = new StringBuilder(); // To store the result
+        int n = s.length();
+        int k = n - 1; // Pointer for traversing from the end
+
+        for (int i = 0; i < n; i++) {
+            if (Character.isLetter(s.charAt(i))) {
+                // Find the next letter from the end
+                while (k >= 0 && !Character.isLetter(s.charAt(k))) {
+                    k--;
+                }
+                rev.append(s.charAt(k)); // Add the reversed letter
+                k--; // Move the reverse pointer
+            } else {
+                // If not a letter, keep the character as it is
+                rev.append(s.charAt(i));
+            }
+        }
+
+        return rev.toString(); // Convert to string and return
+    }
+}
