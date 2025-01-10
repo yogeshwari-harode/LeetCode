@@ -1,0 +1,18 @@
+class Solution {
+    public int repeatedNTimes(int[] nums) {
+        int size=nums.length;
+        int n=size/2;
+        int ans=0;
+        for(int i=0 ; i<size ; i++){
+            int temp=nums[i];
+            int count=0;
+            for(int j=0 ; j<size ; j++){
+                if(nums[j]==temp)   count++;
+            }
+            if(count>=n){
+                ans=nums[i];
+            }
+        }
+        return ans;
+    }
+}
