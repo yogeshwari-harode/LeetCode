@@ -1,0 +1,19 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        if (prices == null || prices.length < 2) {
+            return 0; // No profit possible
+        }
+
+        int CP = Integer.MAX_VALUE; // Minimum price
+        int maxProfit = 0;          // Maximum profit
+
+        for (int price : prices) {
+            if (price < CP) {
+                CP = price; // Update minimum price
+            } else {
+                maxProfit = Math.max(maxProfit, price - CP); // Update max profit
+            }
+        }
+        return maxProfit;
+    }
+}
