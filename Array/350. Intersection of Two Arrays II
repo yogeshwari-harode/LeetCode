@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        int n1 = nums1.length;
+        int n2 = nums2.length;
+        
+        HashMap<Integer, Integer> map1 = new HashMap<>();
+        HashMap<Integer, Integer> map2 = new HashMap<>();
+        
+        for (int i = 0; i < n1; i++) {
+            map1.put(nums1[i], map1.getOrDefault(nums1[i], 0) + 1);
+        }
+        
+        for (int i = 0; i < n2; i++) {
+            map2.put(nums2[i], map2.getOrDefault(nums2[i], 0) + 1);
+        }
+
+        List<Integer> resultList = new ArrayList<>();
+        
+        for (Integer key : map1.keySet()) {
+            if (map2.containsKey(key)) {
+                int count1 = map1.get(key);
+                int count2 = map2.get(key);
+                int minCount = Math.min(count1, count2);
+            
+                for (int i = 0; i < minCount; i++) {
+                    resultList.add(key);
+                }
+            }
+        }
+        
+        int[] result = new int[resultList.size()];
+        for (int i = 0; i < resultList.size(); i++) {
+            result[i] = resultList.get(i);
+        }
+        
+        return result;
+    }
+}
