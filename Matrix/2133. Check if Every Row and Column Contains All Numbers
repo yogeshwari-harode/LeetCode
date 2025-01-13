@@ -1,0 +1,29 @@
+import java.util.HashSet;
+
+class Solution {
+    public boolean checkValid(int[][] matrix) {
+        int n = matrix.length;
+
+        for (int i = 0; i < n; i++) {
+            HashSet<Integer> rowSet = new HashSet<>();
+            HashSet<Integer> colSet = new HashSet<>();
+            for (int j = 0; j < n; j++) {
+                // Check row
+                if (!rowSet.add(matrix[i][j])) {
+                    return false; // Duplicate in row
+                }
+                // Check column
+                if (!colSet.add(matrix[j][i])) {
+                    return false; // Duplicate in column
+                }
+            }
+
+            // Ensure all numbers 1 to n are in the row and column
+            if (rowSet.size() != n || colSet.size() != n) {
+                return false;
+            }
+        }
+
+        return true; // Matrix is valid
+    }
+}
