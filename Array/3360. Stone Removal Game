@@ -1,0 +1,14 @@
+class Solution {
+    public boolean canAliceWin(int n) {
+        int removeStone = 10;
+        boolean isAliceTurn = true; 
+
+        while (n >= removeStone) {
+            n -= removeStone; 
+            removeStone--; 
+            isAliceTurn = !isAliceTurn; // Switch turns
+        }
+        // If it's Alice's turn after the loop, Bob wins. Otherwise, Alice wins.
+        return !isAliceTurn;
+    }
+}
