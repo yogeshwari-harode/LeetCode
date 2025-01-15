@@ -1,0 +1,16 @@
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        int[] shuffledArray = new int[2 * n];
+        int xIdx = 0; 
+        int yIdx = n;
+
+        for (int i = 0; i < 2 * n; i++) {
+            if (i % 2 == 0) {
+                shuffledArray[i] = nums[xIdx++]; // Take from x part
+            } else {
+                shuffledArray[i] = nums[yIdx++]; // Take from y part
+            }
+        }
+        return shuffledArray;
+    }
+}
