@@ -1,0 +1,19 @@
+class Solution {
+    public double trimMean(int[] arr) {
+        int n = arr.length;
+        //Sort the array
+        Arrays.sort(arr);
+        
+        // Calculate the number of elements to remove (5% of n)
+        int removeCount = (int) (n * 0.05);
+        
+        // Calculate the sum of the remaining elements
+        double totalSum = 0;
+        for (int i = removeCount; i < n - removeCount; i++) {
+            totalSum += arr[i];
+        }
+        
+        // Calculate and return the mean
+        return totalSum / (n - 2 * removeCount);
+    }
+}
