@@ -1,0 +1,16 @@
+class Solution {
+    public List<Integer> stableMountains(int[] height, int threshold) {
+        int n = height.length;
+        List<Integer> list = new ArrayList<>();
+        
+        // Start from the second mountain (index 1) because mountain 0 cannot be stable
+        for (int i = 1; i < n; i++) {
+            // Check if the previous mountain's height is strictly greater than the threshold
+            if (height[i - 1] > threshold) {
+                list.add(i);
+            }
+        }
+        
+        return list;
+    }
+}
