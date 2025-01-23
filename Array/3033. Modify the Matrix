@@ -1,0 +1,30 @@
+class Solution {
+    public int[][] modifiedMatrix(int[][] matrix) {
+        int m = matrix.length; 
+        int n = matrix[0].length; 
+        int[][] ans = new int[m][n]; 
+
+        // Copy the input matrix to the result matrix
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                ans[i][j] = matrix[i][j];
+            }
+        }
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] == -1) { 
+                    int max = Integer.MIN_VALUE;
+
+                    // Find the maximum value in column `j`
+                    for (int k = 0; k < m; k++) {
+                        max = Math.max(max, matrix[k][j]);
+                    }
+                    ans[i][j] = max;
+                }
+            }
+        }
+
+        return ans;
+    }
+}
