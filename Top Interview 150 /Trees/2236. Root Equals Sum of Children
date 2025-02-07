@@ -1,0 +1,39 @@
+class Solution {
+
+    public int Sum(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+
+        int leftSubtreeSum = Sum(node.left);  
+        int rightSubtreeSum = Sum(node.right); 
+        int totalSum = node.val + leftSubtreeSum + rightSubtreeSum;
+        return totalSum;
+    }
+
+    public boolean checkTree(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        int leftChildValue;
+        if (root.left != null) {
+            leftChildValue = root.left.val;
+        } 
+        else {
+            leftChildValue = 0;
+        }
+
+        int rightChildValue;
+
+        if (root.right != null) {
+            rightChildValue = root.right.val;
+        } 
+        else {
+            rightChildValue = 0;
+        }
+
+        boolean isRootEqualToChildrenSum = (root.val == (leftChildValue + rightChildValue));
+
+        return isRootEqualToChildrenSum;
+    }
+}
