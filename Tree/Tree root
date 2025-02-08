@@ -1,4 +1,4 @@
-public class BinaryTreeYT{
+public class BinaryT{
     static class Node{
         int data;
         Node left;
