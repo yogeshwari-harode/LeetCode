@@ -1,0 +1,15 @@
+class Solution {
+    public int findClosestNumber(int[] nums) {
+        int ans = nums[0];
+
+        for (int num : nums) {
+            int diff = Math.abs(num);
+            int ansDiff = Math.abs(ans);
+
+            if (diff < ansDiff || (diff == ansDiff && num > ans)) {
+                ans = num;
+            }
+        }
+        return ans;
+    }
+}
