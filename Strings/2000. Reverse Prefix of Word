@@ -1,0 +1,21 @@
+class Solution {
+    public String reversePrefix(String word, char ch) {
+        int n=word.length();
+        String ans="";
+        int idxOfCh=0;
+        for(int i=0 ; i<n ; i++){
+            if(word.charAt(i)==ch){
+                idxOfCh=i;
+                break;
+            }
+        }
+
+        for(int j=idxOfCh ; j>=0 ; j--){
+            ans+=word.charAt(j);
+        }
+        for(int k=idxOfCh+1 ; k<n ; k++){
+            ans+=word.charAt(k);
+        }
+        return ans;
+    }
+}
