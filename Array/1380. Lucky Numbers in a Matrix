@@ -1,0 +1,36 @@
+class Solution {
+    public List<Integer> luckyNumbers(int[][] matrix) {
+        int m = matrix.length;  // Number of rows
+        int n = matrix[0].length; // Number of columns
+        
+        Set<Integer> rowMins = new HashSet<>();
+        Set<Integer> colMaxs = new HashSet<>();
+        
+        // Find the minimum element in each row
+        for (int i = 0; i < m; i++) {
+            int minVal = Integer.MAX_VALUE;
+            for (int j = 0; j < n; j++) {
+                minVal = Math.min(minVal, matrix[i][j]);
+            }
+            rowMins.add(minVal);
+        }
+        
+        // Find the maximum element in each column
+        for (int j = 0; j < n; j++) {  // Iterate over columns first
+            int maxVal = Integer.MIN_VALUE;
+            for (int i = 0; i < m; i++) {  // Iterate over rows for the same column
+                maxVal = Math.max(maxVal, matrix[i][j]);
+            }
+            colMaxs.add(maxVal);
+        }
+
+        
+        List<Integer> luckyNumbers = new ArrayList<>();
+        for (int num : rowMins) {
+            if (colMaxs.contains(num)) {
+                luckyNumbers.add(num);
+            }
+        }
+        return luckyNumbers;
+    }
+}
