@@ -1,0 +1,19 @@
+class Solution {
+    public int specialArray(int[] nums) {
+        int n = nums.length;
+        Arrays.sort(nums);
+
+        for (int i = 0; i < n; i++) {
+            int x = n - i; // Calculate how many numbers are >= nums[i]
+
+            // Check if nums[i] is greater than or equal to x
+            if (nums[i] >= x) {
+                // Ensure no previous number also satisfies the condition
+                if (i == 0 || nums[i - 1] < x) {
+                    return x;
+                }
+            }
+        }
+        return -1;
+    }
+}
