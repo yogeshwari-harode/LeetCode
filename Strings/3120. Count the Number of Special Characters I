@@ -1,0 +1,19 @@
+class Solution {
+    public int numberOfSpecialChars(String word) {
+        HashSet<Character>set=new HashSet<>();
+        int n=word.length();
+        int count=0;
+        for(int i=0 ; i<n ; i++){
+            set.add(word.charAt(i));
+        }
+        
+        for(char ch:set){
+            if(ch>='A' && ch<='Z'){
+                if(set.contains(Character.toLowerCase(ch))){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+}
