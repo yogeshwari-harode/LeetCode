@@ -1,0 +1,42 @@
+class Solution {
+    public String greatestLetter(String s) {
+        // Create two sets to store lowercase and uppercase letters
+        boolean[] lower = new boolean[26];
+        boolean[] upper = new boolean[26];
+
+        // Fill the sets
+        for (char c : s.toCharArray()) {
+            if (Character.isLowerCase(c)) {
+                lower[c - 'a'] = true;
+            } else if (Character.isUpperCase(c)) {
+                upper[c - 'A'] = true;
+            }
+        }
+
+        // Check from 'Z' to 'A'
+        for (int i = 25; i >= 0; i--) {
+            if (lower[i] && upper[i]) {
+                return String.valueOf((char) ('A' + i));
+            }
+        }
+
+        return "";
+    }
+}
+
+
+/*                    OR
+
+class Solution {
+    public String greatestLetter(String s) {
+        for(char c='Z';c>='A';c--){
+            if (s.contains(String.valueOf(c)) && s.contains(String.valueOf(Character.toLowerCase(c)))) {
+        return String.valueOf(c);
+            }
+        }
+        return "";
+    }
+}
+
+
+*/
