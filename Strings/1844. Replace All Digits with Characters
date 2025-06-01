@@ -1,0 +1,13 @@
+class Solution {
+    public String replaceDigits(String s) {
+        char[] chars = s.toCharArray();
+        
+        for (int i = 1; i < chars.length; i+=2) {
+            char prevChar = chars[i - 1];
+            int digit = chars[i] - '0';  // convert char digit to int
+            chars[i] = (char)(prevChar + digit);  // shift operation
+        }
+        
+        return new String(chars);
+    }
+}
